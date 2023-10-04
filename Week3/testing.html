@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+    <head> 
+        
+
+        <script src = "script.js"> </script>
+
+        <script> 
+
+            function runScript(){
+                var s = getTable(Math.floor(Math.random()*40 + 1), 256);
+                document.writeln(s); 
+                
+            }
+
+            function createNewButton(){
+                let newDiv = document.getElementById("div1");
+                let button = document.createElement('BUTTON');
+                let text = document.createTextNode("Button");
+
+                button.appendChild(text);
+
+                newDiv.appendChild(button);
+
+                button.onmouseover(runScript())
+            }
+        </script> 
+        <title> Testing Theory from Lecture</title>
+
+    </head>   
+
+    <body>
+        <div id = "table">
+            <button onclick="runScript(), createNewButton()"> Click here to create grid!</button>
+        </div>
+
+        <br>
+
+        <div id = "div1"></div>
+
+    </body>
+
+</html>
