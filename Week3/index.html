@@ -1,0 +1,73 @@
+<!DOCTYPE HTML> 
+<html>
+
+  <head>
+   <link rel = "stylesheet" type = "text/css" href = "styles.css"/>
+    <style>
+   
+    /* I have only used internal styling to show that I am able to, normally would have all styling on external styles.css file */
+    #h1Test{
+      text-align:center;
+      font-size:15px;
+    }
+    
+    #myButton, #resetButton, #counterButton{
+     text-align: center;
+     font-size: 25px;
+     margin-top: 20px;
+     margin-left: 100px
+    }
+    </style>
+  
+    <script> 
+    	/*I wanted to use some functions to change colour of buttons */
+    	function changeColour(){
+     	 document.getElementById("myButton").style.color = "red"; }
+       
+      function differentColour(){
+       document.getElementById("h1Test").style.color = "blue";
+       
+       }
+       
+      function clickCounter() {
+      /* Cannot currently get this to work */
+      	document.getElementByID("counterButton").innerHTML = "You have clicked the button!";	
+       }
+       
+      function reset(){
+       document.getElementById("myButton").style.color = "black";
+       document.getElementById("h1Test").style.color = "black";
+       }
+       
+    </script>
+  
+    <title>Testing Page </title>
+  </head>
+
+  <body>
+    
+    <h1 id = "h1Test" onmouseover = "differentColour()" >
+    Button Testing
+    </h1>
+  
+    <button id ="myButton"  onclick ="changeColour()" >
+        Click to change colour!
+    </button>
+    
+     <br> 
+    
+     
+    <button id = "counterButton" onclick = "clickCounter()">
+      Click here!
+     </button>  
+    
+    <br>
+    
+    <button id="resetButton" onclick = "reset()">
+      Reset Page!
+    </button>
+    
+   
+  </body>
+
+</html>

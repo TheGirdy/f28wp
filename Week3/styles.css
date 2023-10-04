@@ -1,0 +1,14 @@
+body{
+  height: 250px;
+  width: 300px; 
+}
+
+h1 {
+  font-family:Comic Sans MS;
+}
+
+button {
+  width:100px;
+  height:100px;
+  font-size:15px;
+}
