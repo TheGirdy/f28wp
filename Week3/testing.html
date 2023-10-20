@@ -10,35 +10,43 @@
 
             function runScript(){
                 var s = getTable(Math.floor(Math.random()*40 + 1), 256);
-                document.writeln(s); 
-                
+                var the_grid = document.getElementById("the_grid");
+                the_grid.innerHTML=s
+                /*document.writeln(s);*/ 
             }
 
-            function createNewButton(){
-                let newDiv = document.getElementById("div1");
-                let button = document.createElement('BUTTON');
-                let text = document.createTextNode("Button");
 
-                button.appendChild(text);
-
-                newDiv.appendChild(button);
-
-                button.onmouseover(runScript())
-            }
         </script> 
         <title> Testing Theory from Lecture</title>
 
     </head>   
 
     <body>
-        <div id = "table">
-            <button onclick="runScript(), createNewButton()"> Click here to create grid!</button>
+        <div class = "topNavBar">
+            <a class = "currentPage" href = "#home">Home</a>
+            <a href = "#page1"> Page 1</a> 
+            <a href = "#page2"> Page 2</a>
+            <a href = "#page3"> Page 3</a>
         </div>
 
-        <br>
+        <div class = "header">
+            <p style = "color:red; text-align: center; font-size: 30px;">Ryan Girdwood's Webpage</p>
+        </div>
 
-        <div id = "div1"></div>
 
+        <div class = "main">
+
+            <div id = "table">
+                <button styleID = "tableButton" onclick="runScript(), createNewButton()"> Click here to create grid!</button>
+                <div id = "the_grid">
+
+                </div>
+            </div>
+
+
+            <br>
+
+        </div>
     </body>
 
 </html>

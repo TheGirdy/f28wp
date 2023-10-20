@@ -14,7 +14,8 @@ function getHue(range) {
     s += "</table>";
   return s;
   }
-  
+
+
  /* var s = getTable(Math.floor(Math.random()*40 + 1), 256);
   document.writeln(s); */
   
