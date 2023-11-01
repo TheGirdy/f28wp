@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Including jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <center>
+        <h1 style="color: green;">
+                Ryan Girdwood
+        </h1>
+        <h3>
+            How to change font size using jQuery?
+        </h3>
+        <div id="content">Click this button to change the font size</div>
+        <br>
+        <button>Click me to change text size!</button>
+        <br>
+        <br>
+        <button class="colour"> Hover over me to change text colour</button>
+    </center>
+    <script>
+        $(document).ready(function() {
+            $('button').click(function() {
+                $("#content").css("fontSize", "32px");
+            });
+            $('button').click(function() {
+                $("#content").css("fontSize", "20px");
+            });
+            $('.colour').mouseenter(function(){
+                $("#content").css("color", "red");
+            })
+            $('.colour').mouseleave(function(){
+                $("#content").css("color", "black");
+            })
+        });
+    </script>
+</body>
+</html>
