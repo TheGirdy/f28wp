@@ -1,0 +1,39 @@
+<p style = "font-weight: bold; text-align: center; font-size: 50px; margin-top: 40px;"> Time until Christmas:</p>
+<p id="timer" style = "font-weight: bold; text-align: center; font-size: 50px; margin-top: 50px;"> </p>
+
+<script> 
+
+//Set the date that we are counting towards. 
+//In this case I have chosen Christmas Day of this year.
+var countDownDate = new Date("Dec 25, 2023 00:00:00").getTime();
+
+
+//We will need to update the count every second.
+var x = setInterval(function() {
+    
+    
+    //Get today's date and time.
+    var currentDate = new Date ().getTime();
+
+    
+    //Find difference between currentDate and the date we are counting down to. 
+    var difference = countDownDate - currentDate;
+
+    
+    //Set up calculations for days, hours, minutes and seconds.
+    var days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((difference % (1000 * 60 * 60 )) / (1000 * 60));
+    var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+  
+    
+    //Display the results in the element with the id = 'timer'.
+    document.getElementById("timer").innerHTML = days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds +  " seconds, ";
+
+    //Check if the counter has reached zero.
+    if (distance < 0){
+        clearInterval(x);
+        document.getElementById("timer").innerHTML = "Merry Christmas!";
+    }
+}, 1000);
+</script> 
