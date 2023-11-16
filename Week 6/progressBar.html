@@ -2,6 +2,57 @@
 <head> 
     <title> Progress Bar </title>
 
+    <style> 
+    #myProgress {
+        width: 100%;
+        background-color: pink;
+    }
+    
+    #myBar {
+        width: 1%;
+        height: 30px;
+        background-color: yellow;
+        text-align: center; 
+        color: red;
+        line-height: 30px; 
+        
+    }
+    </style>
 
+    <script>
+        var i = 0;
+        function move() {
+            if (i == 0) {
+                i = 1;
+                var elem = document.getElementById("myBar");
+                var width = 10;
+                var id = setInterval(frame, 10);
+                function frame() {
+                if (width >= 100) {
+                    clearInterval(id);
+                    i = 0;
+                } else {
+                    width++;
+                    elem.style.width = width + "%";
+                    elem.innerHTML = width + "%";
+                }
+                }
+            }
+        }
+
+    </script>
 
 </head> 
+
+<body> 
+    <h1 style="padding-left:40%"> Ryan Girdwood - HTML Progress Bar </h1>
+
+    <div id = "myProgress"> 
+        <div id = "myBar"> 10% </div>
+    </div>
+
+    <br>
+    <button onclick="move();" style = "height: 45px; width: 70px; position: absolute; left: 50%"> Click Me!</button>
+
+
+</body>
