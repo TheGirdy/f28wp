@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Zone Clock</title>
+  <!--Include moment.js and moment-timezone for timezone handling--> <!--Note, I googled help for this part and this was the code provided for the answer.-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.33/moment-timezone-with-data-10-year-range.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 40px;
+      color: blue;
+    }
+    #worldClock {
+      font-size: 2em;
+      margin-top: 20px;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Time Zone Clock</h1>
+
+  <!--User input form-->
+  <form>
+    <!--The form will prompt the user to input a City or Country (Note some Cities and countries do not work as intended so may need to update code in the future to fix this.)-->
+    <label for="location">Enter City or Country:</label>
+    <input type="text" id="location" name="location" placeholder="Example: USA or Germany" required>
+    <button type="button" onclick="displayCurrentTime()">Get Time</button>
+  </form>
+
+  <!--Display area for the current time-->
+  <div id="worldClock"></div>
+
+  <script>
+    //Function to update time display on user click.
+    function displayCurrentTime() {
+      //Get user input.
+      const locationInput = document.getElementById('location').value;
+      //Find the relevant timezone for the given location.
+      const timezone = findTimezone(locationInput);
+
+      //Check if a valid timezone was found.
+      if (timezone) {
+        //Initial call to set time.
+        updateTime(timezone);
+        //Update time every second so that clock is correct.
+        setInterval(() => updateTime(timezone), 1000);
+      } else {
+        //Display an alert if user input is invalid (not in the list imported).
+        alert('Invalid location. Please enter a valid city or country name.');
+      }
+    }
+
+    //Function to find a timezone based on user input.
+    function findTimezone(location) {
+      //Use moment.js to get a list of timezone names and  try find a match.
+      const timezone = moment.tz.names().find(name => name.toLowerCase().includes(location.toLowerCase()));
+
+      return timezone;
+    }
+
+    //Function to update the displayed time based on user input.
+    function updateTime(timezone) {
+      //Set options for the time formatting.
+      const options = { timeZone: timezone, timeStyle: 'medium' };
+      //Get the current time in the specified timezone.
+      const timeString = new Date().toLocaleTimeString('en-US', options);
+      
+      //Update the displayed time on the worldClock
+      document.getElementById('worldClock').innerText = `Current Time: ${timeString}`;
+    }
+  </script>
+
+</body>
+</html>
